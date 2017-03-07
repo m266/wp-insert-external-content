@@ -1,7 +1,7 @@
 === WP Insert External Content ===
 Tags: insert, external, content
 Requires at least: 4.0
-Tested up to: 4.7.2
+Tested up to: 4.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,9 @@ Plugin zum Einbinden externer Inhalte in WordPress. Nach der Aktivierung können 
 
 
 == Changelog ==
+Version 1.0.1
+1. Tested up to 4.7.3
+
 Version 1.0
 1. Erste Version
 2. Auto Update from GitHub
