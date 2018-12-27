@@ -6,8 +6,8 @@ Plugin URI:    https://github.com/m266/wp-insert-external-content
 Description:   Plugin zum Einbinden externer Inhalte in WordPress. Nach der Aktivierung k&ouml;nnen externe Inhalte in Seiten bzw. Beitr&auml;gen integriert werden. Dazu wird im Inhaltsbereich mit dem WordPress-Editor folgender Shortcode eingef&uuml;gt: [wpiec]URL[/wpiec]  (URL ist durch die richtige Web-Adresse zu ersetzen). Update- und Alarm-Intervall lassen sich ab Zeile 45 anpassen.
 Author:        Hans M. Herbrand
 Author URI:    https://www.web266.de
-Version:       1.1.1
-Date:          2018-08-23
+Version:       1.1.2
+Date:          2018-12-27
 License:       GNU General Public License v2 or later
 License URI:   http://www.gnu.org/licenses/gpl-2.0.html
 Credits:       Daniel Gruber, http://zeit-zu-handeln.net/?p=739
