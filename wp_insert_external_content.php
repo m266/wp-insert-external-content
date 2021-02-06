@@ -1,46 +1,34 @@
 <?php
 
 /*
-Plugin Name:   WP H-Insert External Content
-Plugin URI:    https://github.com/m266/wp-insert-external-content
-Description:   Plugin zum Einbinden externer Inhalte in WordPress. Nach der Aktivierung k&ouml;nnen externe Inhalte in Seiten bzw. Beitr&auml;gen integriert werden. Dazu wird im Inhaltsbereich mit dem WordPress-Editor folgender Shortcode eingef&uuml;gt: [wpiec]URL[/wpiec]  (URL ist durch die richtige Web-Adresse zu ersetzen). Update- und Alarm-Intervall lassen sich ab Zeile 45 anpassen.
-Author:        Hans M. Herbrand
-Author URI:    https://www.web266.de
-Version:       1.2
-Date:          2020-10-27
-License:       GNU General Public License v2 or later
-License URI:   http://www.gnu.org/licenses/gpl-2.0.html
-Credits:       Daniel Gruber, http://zeit-zu-handeln.net/?p=739
+Plugin Name:       WP H-Insert External Content
+Plugin URI:        https://github.com/m266/wp-insert-external-content
+Description:       Plugin zum Einbinden externer Inhalte in WordPress. Nach der Aktivierung k&ouml;nnen externe Inhalte in Seiten bzw. Beitr&auml;gen integriert werden. Dazu wird im Inhaltsbereich mit dem WordPress-Editor folgender Shortcode eingef&uuml;gt: [wpiec]URL[/wpiec]  (URL ist durch die richtige Web-Adresse zu ersetzen). Update- und Alarm-Intervall lassen sich ab Zeile 45 anpassen.
+Author:            Hans M. Herbrand
+Author URI:        https://www.web266.de
+Version:           1.3
+Date:              2021-02-06
+License:           GNU General Public License v2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Credits:           Daniel Gruber, http://zeit-zu-handeln.net/?p=739
 GitHub Plugin URI: https://github.com/m266/wp-insert-external-content
  */
 
 // Block external access
 defined('ABSPATH') || exit();
 
-// GitHub-Updater aktiv?
-// Makes sure the plugin is defined before trying to use it
-if (!function_exists('is_plugin_active')) {
-    require_once ABSPATH . '/wp-admin/includes/plugin.php';
-}
-// Makes sure the plugin is defined before trying to use it
-if (!function_exists('is_plugin_inactive')) {
-    require_once ABSPATH . '/wp-admin/includes/plugin.php';
-}
+if ($pagenow == 'plugins.php'){
 // GitHub-Updater inaktiv?
-if (is_plugin_inactive('github-updater/github-updater.php')) {
-    // Plugin ist inaktiv
-    // Plugin-Name im Meldungstext anpassen
-    function wphiec_missing_github_updater_notice() {; // GitHub-Updater fehlt
-        ?>
-    <div class="error notice">  <!-- Wenn ja, Meldung ausgeben -->
-        <p><?php _e('Bitte das Plugin <a href="https://www.web266.de/tutorials/github/github-updater/" target="_blank">
-        <b>"GitHub-Updater"</b></a> herunterladen, installieren und aktivieren.
-        Ansonsten werden keine weiteren Updates f&uuml;r das Plugin <b>"WP H-Insert External Content"</b> bereit gestellt!');?></p>
-    </div>
-                        <?php
+        if (!function_exists('is_plugin_inactive')) {
+            require_once ABSPATH . '/wp-admin/includes/plugin.php';
+        }
+        if (is_plugin_inactive('github-updater/github-updater.php')) {
+            ?>
+<div class="notice notice-error"><p>Bitte das Plugin <a href="https://www.web266.de/tutorials/github/github-updater/" target="_blank"><b>"GitHub-Updater"</b></a> herunterladen, installieren und aktivieren, um weiterhin Updates zu erhalten!</p></div>
+<?php
 }
-    add_action('admin_notices', 'wphiec_missing_github_updater_notice');
 }
+
 // Zeit-Definition
 $wpiec_intervall = (60 * 60); // Update-Intervall: Zeit in Sekunden [Standard 1 Std (60*60)]
 $wpiec_alarm = (24 * 60 * 60); // Alarm-Intervall: Zeit in Sekunden [Standard 1 Tag (24*60*60)]
