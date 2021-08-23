@@ -1,7 +1,7 @@
 === WP H-Insert External Content ===
 Tags: insert, external, content
 Requires at least: 4.0
-Tested up to: 5.7.2
+Tested up to: 5.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,9 @@ Plugin zum Einbinden externer Inhalte in WordPress. Nach der Aktivierung k&ouml;
 
 
 == Changelog ==
+Version 1.6
+1. PHP-Code vereinfacht
+
 Version 1.5
 1. PHP-Code überarbeitet
 2. Erinnerung an Git Updater kommt nun bei jeder Plugin-Aktivierung
